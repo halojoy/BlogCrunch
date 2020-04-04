@@ -12,6 +12,5 @@ Features:
 Coursework for year 2 "Databases, Networks and the Web".
 
 ## Deployment
-1. Run the [createdb.sql](createdb.sql) on your SQL database (or manually recreate it).
-2. Update the database details in [includes/database-connect.php](includes/database-connect.php)
-3. Upload to a server with PHP (tested on PHP 5.4, but should work with any 5+)
+Upload and Browse to root index.php.<br>
+Install and Create Admin account.
