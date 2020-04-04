@@ -35,7 +35,7 @@ class BlogEntryTable extends Table
     public function getAllEntries()
     {
         // the sql statement to get all of the entries from the database
-        $sql = "SELECT blog_entry.id, blog_entry.entry_title, SUBSTRING(blog_entry.entry_text, 1, 150) AS intro, blog_entry.entry_date, blog_entry.image_url, users.username
+        $sql = "SELECT blog_entry.id, blog_entry.entry_title, substr(blog_entry.entry_text, 1, 150) AS intro, blog_entry.entry_date, blog_entry.image_url, users.username
                 FROM blog_entry
                 JOIN users
                 ON blog_entry.author_id=users.user_id
@@ -56,7 +56,7 @@ class BlogEntryTable extends Table
     public function getNamedEntries($username)
     {
         // the sql statement to get all of the relevant entries from the database
-        $sql = "SELECT blog_entry.id, blog_entry.entry_title, SUBSTRING(blog_entry.entry_text, 1, 150) AS intro, blog_entry.entry_date, blog_entry.image_url, users.username
+        $sql = "SELECT blog_entry.id, blog_entry.entry_title, substr(blog_entry.entry_text, 1, 150) AS intro, blog_entry.entry_date, blog_entry.image_url, users.username
                 FROM blog_entry
                 JOIN users
                 ON blog_entry.author_id=users.user_id
@@ -101,7 +101,7 @@ class BlogEntryTable extends Table
             $where_clause = "WHERE " . implode(' OR ', $where_list);
 
             // the sql statement to get all of the relevant entries from the database
-            $sql = "SELECT blog_entry.id, blog_entry.entry_title, SUBSTRING(blog_entry.entry_text, 1, 150) AS intro, blog_entry.entry_date, blog_entry.image_url, users.username
+            $sql = "SELECT blog_entry.id, blog_entry.entry_title, substr(blog_entry.entry_text, 1, 150) AS intro, blog_entry.entry_date, blog_entry.image_url, users.username
                 FROM blog_entry
                 JOIN users
                 ON blog_entry.author_id=users.user_id $where_clause 

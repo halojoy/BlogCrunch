@@ -34,7 +34,7 @@ function upload_image($target_dir) {
     }
 
     // ensure that the size does not exceed our max allowed file size, 1500 KB in this case
-    if ($_FILES["imageToUpload"]["size"] > 1500000) {
+    if ($_FILES["imageToUpload"]["size"] >10000000) {
         $error_message .= "Your file is too large. ";
         $uploadOk = 0;
     }

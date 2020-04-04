@@ -34,12 +34,12 @@ class AdminTable extends UserTable
     {
         try {
             // get the result of the parent query for checking credentials
-            $statement = parent::checkCredentials($username, $password);
+            $result = parent::checkCredentials($username, $password);
 
-            $entry = $statement->fetchObject();
+
 
             // if the user is an admin then return true (success)
-            if ($entry->admin) {
+            if ($result->admin) {
                 return true;
             }
             else {

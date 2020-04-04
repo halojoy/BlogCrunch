@@ -3,6 +3,10 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
+if (!is_file('data/pdosqlite.db')) {
+    include_once 'includes/install.php';
+    exit();
+}
 // include the code for connecting to the database
 include_once "includes/database-connect.php";
 

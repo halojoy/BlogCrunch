@@ -23,6 +23,8 @@ else {
     if (isset($_GET['q'])) {
         // get any entries matching the search query
         $all_entries = $entry_table->getSearchEntries($_GET['q']);
+        $entries     = $entry_table->getSearchEntries($_GET['q']);
+        $number      = count($entries->fetchAll());
         // include the view for the search results
         include_once "views/search-results-html.php";
     }
@@ -30,6 +32,8 @@ else {
     elseif (isset($_GET['author'])) {
         // get any entries by the requested author
         $all_entries = $entry_table->getNamedEntries($_GET['author']);
+        $entries     = $entry_table->getNamedEntries($_GET['author']);
+        $number      = count($entries->fetchAll());
         // include the view for the results
         include_once "views/author-results-html.php";
     }

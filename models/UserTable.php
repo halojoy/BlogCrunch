@@ -24,7 +24,7 @@ class UserTable extends Table
         $user_table_retrieval = $this->makeStatement($sql, $data);
 
         // if the query generated a successful result, then we already have the email in the database
-        if ($user_table_retrieval->rowCount() >= 1) {
+        if ($user_table_retrieval->fetch()) {
             throw new Exception("Error: e-mail/username already in use");
         }
     }
@@ -86,8 +86,8 @@ class UserTable extends Table
         $statement = $this->makeStatement($sql, $data);
 
         // if the statement generated a result, then it is a valid credential
-        if ($statement->rowCount() === 1) {
-            return $statement;
+        if ($result = $statement->fetchObject()) {
+            return $result;
         }
         // otherwise throw an exception
         else {
@@ -114,9 +114,9 @@ class UserTable extends Table
         $statement = $this->makeStatement($sql, $data);
 
         // the row count should be 1 if the user is found
-        if ($statement->rowCount() === 1) {
+        if ($result = $statement->fetchObject()->user_id) {
             // return the id
-            return $statement->fetchObject()->user_id;
+            return $result;
         }
         else {
             throw new Exception("Invalid username");

@@ -4,7 +4,7 @@
  */
 
 try {
-    $connection = new PDO("mysql:host=your_host_name.com;dbname=your_db_name", "admin_user", "admin_password");
+    $connection = new PDO('sqlite:data/pdosqlite.db');
     // set the PDO error mode to exception
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
